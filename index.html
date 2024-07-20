@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>StoryBlok Headless CMS Example</title>
+    <meta name="robots" content="noindex, nofollow, noarchive">
+	<style>
+		body { font: 18px/30px Helvetica,Arial,Sans-Serif; padding: 30px; }
+	</style>
+</head>
+<body>
+  <!-- Source https://github.com/mfyz/cms-test-storyblok/blob/master/index.html -->
+	<div style="max-width: 600px; margin: 0 auto;">
+		<h1>Articles</h1>
+		<p>A very plain browser/vanilla JS demonstration of StoryBlok headless CMS service.</p>
+		<div id="articles"></div>
+	</div>
+
+	<script src="//app.storyblok.com/f/storyblok-latest.js?t=AT1jdc0d4XJ9pBxBcWYOlAtt"></script>
+	<script type="text/javascript">
+		window.storyblok.getAll({
+			starts_with: 'articles'
+		}, (data) => {
+			console.log('articles received from storyblok', data)
+
+			let htmlOutput = '<ul>'
+			for (i in data.stories) {
+				// console.log(response.items[i])
+
+				htmlOutput += '<li>'
+					htmlOutput += '<h2>' + data.stories[i].content.title + '</h2>'
+					htmlOutput += '<img src="' + data.stories[i].content.thumbnail + '" width="200" />'
+					htmlOutput += '<div style="margin-bottom: 50px;">' + data.stories[i].content.description + '</div>'
+				htmlOutput += '</li>'
+			}
+			htmlOutput += '</ul>'
+
+			document.querySelector('#articles').innerHTML = htmlOutput
+		})
+	</script>
+</body>
+</html>
