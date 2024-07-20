@@ -19,3 +19,4 @@
 - Forbes Global 2000 https://www.forbes.com/lists/global2000/
 - Brand Directory https://brandirectory.com/
 - Ranking the Brands https://rankingthebrands.com/
+- G2 https://www.g2.com/
