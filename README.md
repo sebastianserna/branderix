@@ -1,4 +1,4 @@
-# Brandmirror
+# Branderix
 
 ## Tools & Resources
 
